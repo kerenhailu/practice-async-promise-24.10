@@ -128,7 +128,45 @@
 // returnOlderDog().then((res)=>{console.log(res);})
 // .catch((rej)=>{console.log(rej);})
 // .finally(()=>{console.log("the older Dog");})
+// =====================================================================אותה שאלה כמו העליונה חצי תשןבה טובה יותר
+// class Dog {
+//   dogName;
+//   dogAge;
+//   dogBreed;
+//   constructor(dog_name, dog_age, dog_breed) {
+//     this.dogName = dog_name;
+//     this.dogAge = dog_age;
+//     this.dogBreed = dog_breed;
+//   }
+// }
+// const DogArray=
+// [new Dog("rex",12,"boxer"),
+// new Dog("loli",4,"boldog"),
+// new Dog("dodo",7,"rexi")]
 
+// function getOldDog(array){
+//   let max=array[0];
+//   for (const item of array) {
+//     if(item.age>max.age) max = item;
+//   }
+//   return max
+// }
+// function dogsPromise(){
+// return new Promise((resolve,reject)=>{
+//   setTimeout(() => {
+//    getOldDog(DogArray)?resolve(getOldDog(DogArray)):reject({massage:"error"});  
+//   }, 5000);
+// })
+// }
+// async function myFunction() {
+//   try{
+//     return await dogsPromise()
+//   }
+//   catch(error){
+//     console.log(error.massage);
+//   }
+// }
+// myFunction().then((res)=>{console.log(res)}).catch((rej)=>{console.log(rej)}).finally(()=>{})
 // =====================================================================עשיתי
 // 1.	צרו MAP של 7 ילדים, כאשר המפתח הוא השם והערך הוא הגיל.
 // הוסיפו ילד.
@@ -154,6 +192,7 @@
 // }
 
 // =====================================================================
+
 // 2.	צרו MAP של 4 דירות, כאשר המפתח הוא מספר הדירה והערך הוא המספר הנפשות בדירה.
 let Apartments = new Map();
 Apartments.set(1, 5);
@@ -171,29 +210,26 @@ function apartmentSouls(mapApartments) {
   return new Promise((resolve, reject) => {
     let HiSouls = 0;
     setTimeout(() => {
-        
-   
-    mapApartments.forEach((element) => {
-      if (element > HiSouls) {
-        HiSouls = element;
-      }
-    });
-    resolve(HiSouls);
+      mapApartments.forEach((element) => {
+        if (element > HiSouls) {
+          HiSouls = element;
+        }
+      });
+      resolve(HiSouls);
       if (HiSouls == 0) {
         reject("ריק");
-      } 
+      }
     }, 3000);
   });
 }
 
-async function returnBiggestsouls(){
-try{
-    showGif()
-    return await apartmentSouls(Apartments)
-}
-catch(err){
-    return err
-}
+async function returnBiggestsouls() {
+  try {
+    showGif();
+    return await apartmentSouls(Apartments);
+  } catch (err) {
+    return err;
+  }
 }
 
 returnBiggestsouls()
@@ -202,22 +238,45 @@ returnBiggestsouls()
   })
   .catch((rej) => {
     console.log(rej);
-  }).finally(()=>{haidGif() ,table()})
+  })
+  .finally(() => {
+    haidGif(), table();
+  });
 
- function showGif(){
-div1.innerHTML+=`<img id="img"src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5eeea355389655.59822ff824b72.gif" alt="">`
-  }
+function showGif() {
+  div1.innerHTML += `<img id="img"src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5eeea355389655.59822ff824b72.gif" alt="">`;
+}
 
- function haidGif(){
-img.style.display+="none"
+function haidGif() {
+  img.style.display += "none";
+}
+function table() {
+  Apartments.forEach((element) => {
+    tr2.innerHTML += `<td>HiSouls :${element}</td>`;
+  });
+  for (const key of Apartments.keys()) {
+    tr1.innerHTML += `<td>Apartments :${key}</td>`;
   }
-  function table(){
-  
-    Apartments.forEach(element => {
-           tr2.innerHTML+=`<td>HiSouls :${element}</td>`
-      });
-     for (const key of Apartments.keys()) {
-        tr1.innerHTML+=`<td>Apartments :${key}</td>`
-     }
-
-  }
+}
+// =====================================================================
+// אותה תשובה של המגורים
+//!בתשובה זה נותן לי את הקי של התשובה
+// let ApartmentsMap = new Map([[1,2],[2,14],[3,10],[4,9]]);
+// function apaetmentPromise(mapParams) {
+//   return new Promise((resolve,reject)=>{
+// let maxValue =0;
+// let maxKey=0;
+// //!הפוראיץ מוציא לי רק את האיבר ואני רוצה את האובייקט
+// // mapParams.forEach(elementApartman => {
+// //   if(elementApartman>maxValue) maxValue =elementApartman
+// // });
+// for (const item of mapParams.keys()) {
+//   if(mapParams.get(item)>maxValue)
+//   maxKey =item
+//   maxValue=mapParams.get(item)
+// }
+// maxKey ? resolve(maxKey):reject("error");
+//   })
+// }
+// apaetmentPromise(ApartmentsMap).then((res)=>{console.log(res);})
+// .catch((rej)=>{console.log(rej)})
